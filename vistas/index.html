@@ -5,79 +5,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamescorp</title>
+    <title>Index</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
-    <link rel="shortcut icon" href="../assets/logos/logo.png" type="image/x-icon">
 </head>
 
 <body>
-    <section>
-        <header>
-            <nav class="nav-edit navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                    <img class="img-logo" src="../assets/logos/logo.png" alt="">
-                    <a class="navbar-brand" href="#">Jamescorp</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active me-4" aria-current="page" href="#">Inicio</a>
+    <!-- <nav class="nav-edit navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Practica #2</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="img-menu " src="../assets/img/Burguer.png" alt="">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-option nav-item">
-                                <a class="nav-option nav-link ms-2" href="#">Conocenos</a>
-                            </li>
-                            <li class="nav-option nav-item">
-                                <a class="nav-option nav-link ms-2" href="#">Nuestro catalogo</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="img-menu ms-4" src="../assets/img/Burguer.png" alt="">
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
+                    </li>
 
-                    </div>
+                </ul>
+
+            </div>
+        </div>
+    </nav> -->
+
+    <div class="container-fluid cont-main ">
+        <div class="row">
+            <form class="form-1" action="" id="miform">
+                <h1 class="title">Formulario</h1>
+                <div class="mb-3 ">
+                    <label for="exampleInputEmail0" class="form-label">ID</label>
+                    <input type="number" name="Id" class="form-control" id="exampleInput0" aria-describedby="emailHelp">
                 </div>
-            </nav>
-            <div class="container cont-main vh-100">
-                <div class="row">
-                    <div class="form-father">
-                        <form class="form-1" action="">
-                            <label for=""><input class="form-input" type="text"  placeholder="Nombre" width="100px"></label>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" name="Name" class="form-control" id="exampleInput1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 ">
+                    <label for="exampleInputEmail2" class="form-label">Username</label>
+                    <input type="text" name="Username" class="form-control" id="exampleInput2" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail3" class="form-label">Email</label>
+                    <input type="email" name="Email" class="form-control" id="exampleInput3" aria-describedby="emailHelp">
 
-                        </form>
-                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail4" class="form-label">Phone</label>
+                    <input type="number" name="Phone" class="form-control" id="exampleInput4" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail5" class="form-label">Website</label>
+                    <input type="text" name="Website" class="form-control" id="exampleInput5" aria-describedby="emailHelp">
+                </div>
+                <div class="buttons">
+                    <button type="button" id="btnAdd" class="btn btn-primary">Add</button>
+                    <button type="button" id="btnDelete" class="btn btn-primary">Delete</button>
+                    <button type="button" id="btnSearch" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+        <div id="demo"></div>
+    </div>
+    <footer>
+        <section>
+            <div class="container footer-desing d-flex">
+                <div class="col-md-6 order-1 col-12 info-about-us">
+                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, reprehenderit ullam unde officiis non dignissimos, 
+                            labore asperiores fuga esse repellendus alias adipisci ducimus aperiam ipsa, soluta temporibus beatae atque doloremque.</span>
+                        <span>Aliquid quae cum odio at! Deserunt tempore fugit quod dolore nam praesentium quidem beatae! Velit eligendi corrupti odio asperiores natus modi iste reprehenderit! Facilis delectus, maiores obcaecati voluptatibus exercitationem soluta?</span>
+                        <span>Eligendi facilis, quam iusto sunt pariatur ratione ullam est asperiores similique dolore suscipit neque aperiam deserunt. Natus magnam, inventore hic rem nulla nesciunt, praesentium voluptatem animi aliquid dolores accusantium porro.</span></p>
+                </div>
+                <div class="redes-sociales col-md-6 order-2 col-12">
+                    <h3 class="social-title ">REDES SOCIALES</h3>
+                    <a href="https://www.facebook.com/UdeC.oficial" target="_blank"><img class="social-img " src="../assets/img/facebook.svg " alt=" "></a>
+                    <a href="https://twitter.com/udec_oficial" target="_blank"> <img class="social-img" src="../assets/img/twitter.svg " alt=" "></a>
+                    <a href="https://www.instagram.com/udec.oficial/?hl=es-la" target="_blank"> <img class="social-img" src="../assets/img/instagram.svg " alt=" "></a>
+                    <a href="https://www.youtube.com/channel/UCAb8uVFknu27Per_vLM4tGg" target="_blank"> <img class="social-img" src="../assets/img/youtube.svg " alt=" "></a>
                 </div>
             </div>
-        </header>
-        <footer class="h-100">
-            <section>
-                <div class="container">
-                    <div class="col-md-6 info-about-us mt-5">
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, reprehenderit ullam unde officiis non dignissimos, 
-                            labore asperiores fuga esse repellendus alias adipisci ducimus aperiam ipsa, soluta temporibus beatae atque doloremque.</span>
-                            <span>Aliquid quae cum odio at! Deserunt tempore fugit quod dolore nam praesentium quidem beatae! Velit eligendi corrupti odio asperiores natus modi iste reprehenderit! Facilis delectus, maiores obcaecati voluptatibus exercitationem soluta?</span>
-                            <span>Eligendi facilis, quam iusto sunt pariatur ratione ullam est asperiores similique dolore suscipit neque aperiam deserunt. Natus magnam, inventore hic rem nulla nesciunt, praesentium voluptatem animi aliquid dolores accusantium porro.</span></p>
-                    </div>
-                </div>
-            </section>
-        </footer>
-    </section>
+        </section>
+    </footer>
 
 
 
+    <script src="../js/app2.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.js"></script>
 </body>
 
