@@ -73,7 +73,6 @@ const data1 = new formulario(
     document.getElementById('exampleInput4').value,
     document.getElementById('exampleInput5').value);
 document.getElementById('btnAdd').addEventListener("click", function agregarDato() {
-
     document.getElementById('demo');
     demo.innerHTML = agregar
 })

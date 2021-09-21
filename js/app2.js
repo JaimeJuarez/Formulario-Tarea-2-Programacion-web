@@ -1,12 +1,14 @@
 var INVENTARIO = [];
 const DEMO = document.getElementById('demo');
-window.onload = eventos;
 
-function eventos() {
-    document.getElementById('btnAdd').addEventListener("click", agregarDato);
-    document.getElementById('btnSearch').addEventListener("click", mostarDatos);
-    document.getElementById('btnDelete').addEventListener("click", borrardatos);
-}
+
+document.getElementById('btnAdd').addEventListener("click", agregarDato);
+// document.getElementById('btnSearch').addEventListener("click", mostarDatos);
+document.getElementById('btnDelete').addEventListener("click", function() {
+    var iditem = document.getElementById("deleteinput").value;
+    borrardatos(iditem)
+});
+
 
 function agregarDato() {
     var newInventario = {
@@ -22,19 +24,8 @@ function agregarDato() {
         Company: document.getElementById("exampleInput9").value
     }
     INVENTARIO.push(newInventario);
-    newInventario = {
-        Id: document.getElementById('exampleInput0').value = '',
-        Name: document.getElementById('exampleInput1').value = '',
-        Username: document.getElementById('exampleInput2').value = '',
-        Email: document.getElementById('exampleInput3').value = '',
-        Phone: document.getElementById('exampleInput4').value = '',
-        Website: document.getElementById('exampleInput5').value = '',
-        Street: document.getElementById("exampleInput6").value = '',
-        City: document.getElementById("exampleInput7").value = '',
-        Zipcode: document.getElementById("exampleInput8").value = '',
-        Company: document.getElementById("exampleInput9").value = ''
-    }
-    console.log(INVENTARIO);
+    document.getElementById("miform").reset();
+    mostarDatos();
 }
 
 function mostarDatos() {
@@ -46,29 +37,18 @@ function mostarDatos() {
             "<b>" + "Codigo postal del usuario: " + "</b>" + INVENTARIO[i].Zipcode + "<br>" + "<b>" + "Compañia del usuario: " + "</b>" + INVENTARIO[i].Company + "<br>";
     }
     DEMO.innerHTML = DatosUsuario + "<br>";
-    console.log(DEMO);
+
 }
 
-// function borrardatos(Id) {
-//     if (Id == document.getElementById('exampleInput0').value) {
-//         for (let i = 0; i < inventario.length; i++) {
-//             var removed = inventario.splice(i);
+function borrardatos(posicion) {
 
+    for (var i = 0; i < INVENTARIO.length; i++) {
 
-//         }
-//         return removed;
-//     }
+        if (INVENTARIO[i].Id == posicion) {
 
-// }
-
-function borrardatos(id) {
-    let results = INVENTARIO.filter(item => {
-        return item.Id != id;
-    })
-    INVENTARIO = results;
-    console.log(results);
-    console.log(id);
+            INVENTARIO.splice(i, 1);
+            console.log(i);
+        }
+        mostarDatos();
+    }
 }
-//Ciclo para encontrar el id del elemento, y devolver indice.
-
-//Hacer el slice del array.
