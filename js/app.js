@@ -8,7 +8,7 @@ document.getElementById('btnDelete').addEventListener("click", function() {
     var iditem = document.getElementById("deleteinput").value;
     borrardatos(iditem)
 });
-var selectscreen = document.getElementById("users");
+var selectscreen = document.getElementById("user-select");
 var selectoption = document.getElementById("selectoption");
 selectoption.hidden = true;
 var cara1 = document.getElementById("cara1");
@@ -16,6 +16,7 @@ var cara2 = document.getElementById("cara2");
 cara2.hidden = true;
 document.getElementById("next").addEventListener("click", face2);
 document.getElementById("back").addEventListener("click", face1);
+
 
 
 function agregarDato() {
@@ -71,12 +72,14 @@ function borrardatos(posicion) {
     }
 }
 
-function select() {
-    selectscreen.innerHTML = `<option value="USERS">All Users</option> ` + "";
+var idselect = 0;
 
+function select() {
+    selectscreen.innerHTML = `<option value="">All Users</option> ` + "";
     for (let i = 0; i < INVENTARIO.length; i++) {
-        selectscreen.innerHTML += `<option value="USERS">${INVENTARIO[i].Name}</option>`
+        selectscreen.innerHTML += `<option value="${i}">${INVENTARIO[i].Name}</option>`
     }
+
 }
 
 function selecthidden() {
@@ -86,8 +89,14 @@ function selecthidden() {
 
 }
 
-function filtrarDato() {
+function filtrarDatos(posusuario) {
 
+    console.log(INVENTARIO[posusuario]);
+    var DatosUsuario = "<br>" + "<b>" + "Id de usuario: " + "</b>" + INVENTARIO[posusuario].Id + "<br>" + "<b>" + "Nombre: " + "</b>" + INVENTARIO[posusuario].Name + "<br>" + "<b>" + "Nombre de Usuario: " +
+        "</b>" + INVENTARIO[posusuario].Username + "<br>" + "<b>" + "Email de usuario: " + "</b>" + INVENTARIO[posusuario].Email + "<br>" + "<b>" + "Telefono de Usuario: " + "</b>" + INVENTARIO[posusuario].Phone +
+        "<br>" + "<b>" + "Sitio Web de usuario: " + "</b>" + INVENTARIO[posusuario].Website + "<br>" + "<b>" + "Calle del usuario: " + "</b>" + INVENTARIO[posusuario].address.Street + "<br>" + "<b>" + "Ciudad del usuario: " + "</b>" + INVENTARIO[posusuario].address.City + "<br>" +
+        "<b>" + "Codigo postal del usuario: " + "</b>" + INVENTARIO[posusuario].address.Zipcode + "<br>" + "<b>" + "Compañia del usuario: " + "</b>" + INVENTARIO[posusuario].Company.name + "<br>";
+    DEMO.innerHTML = DatosUsuario;
 }
 
 function face2() {
