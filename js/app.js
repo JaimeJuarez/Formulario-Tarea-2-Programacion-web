@@ -1,78 +1,101 @@
-// var inventario = [];
-// var demo = document.getElementById('demo');
-// window.onload = eventos;
-
-// function eventos() {
-//     document.getElementById('btnAdd').addEventListener("click", agregarDato);
-//     document.getElementById('btnSearch').addEventListener("click", mostarDatos);
-// }
-
-// function agregarDato() {
-//     var newInventario = {
-//         Id: document.getElementById('exampleInput0').value,
-//         Name: document.getElementById('exampleInput1').value,
-//         Username: document.getElementById('exampleInput2').value,
-//         Email: document.getElementById('exampleInput3').value,
-//         Phone: document.getElementById('exampleInput4').value,
-//         Website: document.getElementById('exampleInput5').value
-//     }
-//     inventario.push(newInventario);
-//     console.log(inventario);
-// }
-
-// function mostarDatos() {
-//     var DatosUsuario = "";
-//     for (let i = 0; i < inventario.length; i++) {
-//         DatosUsuario += "Id de usuario: " + inventario[i].Id + "<br>" + "Nombre: " + inventario[i].Name + "<br>" + "Nombre de Usuario: " +
-//             inventario[i].Username + "<br>" + "Email de usuario: " + inventario[i].Email + "<br>" + "Telefono de Usuario: " + inventario[i].Phone +
-//             "<br>" + " Sitio Web de usuario: " + inventario[i].Website;
-//     }
-//     demo.innerHTML = DatosUsuario + "<br>";
-//     console.log(demo);
-// }
+var INVENTARIO = [];
+const DEMO = document.getElementById('demo');
 
 
-class formulario {
-    constructor(Id, Name, Username, Email, Phone, Website) {
-            this.Id = Id;
-            this.Name = Name;
-            this.Username = Username;
-            this.Email = Email;
-            this.Phone = Phone;
-            this.Website = Website;
+document.getElementById('btnAdd').addEventListener("click", agregarDato);
+// document.getElementById('btnSearch').addEventListener("click", mostarDatos);
+document.getElementById('btnDelete').addEventListener("click", function() {
+    var iditem = document.getElementById("deleteinput").value;
+    borrardatos(iditem)
+});
+var selectscreen = document.getElementById("users");
+var selectoption = document.getElementById("selectoption");
+selectoption.hidden = true;
+var cara1 = document.getElementById("cara1");
+var cara2 = document.getElementById("cara2");
+cara2.hidden = true;
+document.getElementById("next").addEventListener("click", face2);
+document.getElementById("back").addEventListener("click", face1);
+
+
+function agregarDato() {
+    var newInventario = {
+        // Id: document.getElementById('exampleInput0').value,
+        Id: INVENTARIO.length + 1,
+        Name: document.getElementById('exampleInput1').value,
+        Username: document.getElementById('exampleInput2').value,
+        Email: document.getElementById('exampleInput3').value,
+        Phone: document.getElementById('exampleInput4').value,
+        Website: document.getElementById('exampleInput5').value,
+        address: {
+            Street: document.getElementById("exampleInput6").value,
+            City: document.getElementById("exampleInput7").value,
+            Zipcode: document.getElementById("exampleInput8").value,
+        },
+        Company: {
+            name: document.getElementById("exampleInput9").value
         }
-        // agregarDato() {
-        //     var newInventario = {
-        // document.getElementById('exampleInput0').value,
-        // document.getElementById('exampleInput1').value,
-        // document.getElementById('exampleInput2').value,
-        //  document.getElementById('exampleInput3').value,
-        //  document.getElementById('exampleInput4').value,
-        // document.getElementById('exampleInput5').value
-        //     }
-        //     inventario.push(newInventario);
-        //     console.log(inventario);
+    }
+    INVENTARIO.push(newInventario);
+    mostarDatos();
+    select();
+    selecthidden();
+    face1();
+    document.getElementById("miform").reset();
+    console.log(INVENTARIO);
+}
 
-    // }
-    mostarDatos() {
-        var DatosUsuario = "" + "<br>";
-        for (let i = 0; i < inventario.length; i++) {
-            DatosUsuario += "<br>" + "Id de usuario: " + inventario[i].Id + "<br>" + "Nombre: " + inventario[i].Name + "<br>" + "Nombre de Usuario: " +
-                inventario[i].Username + "<br>" + "Email de usuario: " + inventario[i].Email + "<br>" + "Telefono de Usuario: " + inventario[i].Phone +
-                "<br>" + " Sitio Web de usuario: " + inventario[i].Website + "<br>";
+function mostarDatos() {
+    var DatosUsuario = "" + "<br>";
+    for (let i = 0; i < INVENTARIO.length; i++) {
+        DatosUsuario += "<br>" + "<b>" + "Id de usuario: " + "</b>" + INVENTARIO[i].Id + "<br>" + "<b>" + "Nombre: " + "</b>" + INVENTARIO[i].Name + "<br>" + "<b>" + "Nombre de Usuario: " +
+            "</b>" + INVENTARIO[i].Username + "<br>" + "<b>" + "Email de usuario: " + "</b>" + INVENTARIO[i].Email + "<br>" + "<b>" + "Telefono de Usuario: " + "</b>" + INVENTARIO[i].Phone +
+            "<br>" + "<b>" + "Sitio Web de usuario: " + "</b>" + INVENTARIO[i].Website + "<br>" + "<b>" + "Calle del usuario: " + "</b>" + INVENTARIO[i].address.Street + "<br>" + "<b>" + "Ciudad del usuario: " + "</b>" + INVENTARIO[i].address.City + "<br>" +
+            "<b>" + "Codigo postal del usuario: " + "</b>" + INVENTARIO[i].address.Zipcode + "<br>" + "<b>" + "Compañia del usuario: " + "</b>" + INVENTARIO[i].Company.name + "<br>";
+    }
+    DEMO.innerHTML = DatosUsuario + "<br>";
+
+}
+
+function borrardatos(posicion) {
+
+    for (var i = 0; i < INVENTARIO.length; i++) {
+
+        if (INVENTARIO[i].Id == posicion) {
+
+            INVENTARIO.splice(i, 1);
+            console.log(i);
         }
-        demo.innerHTML = DatosUsuario + "<br>";
-        console.log(demo);
+        mostarDatos();
+        select();
     }
 }
-const data1 = new formulario(
-    document.getElementById('exampleInput0').value,
-    document.getElementById('exampleInput1').value,
-    document.getElementById('exampleInput2').value,
-    document.getElementById('exampleInput3').value,
-    document.getElementById('exampleInput4').value,
-    document.getElementById('exampleInput5').value);
-document.getElementById('btnAdd').addEventListener("click", function agregarDato() {
-    document.getElementById('demo');
-    demo.innerHTML = agregar
-})
+
+function select() {
+    selectscreen.innerHTML = `<option value="USERS">All Users</option> ` + "";
+
+    for (let i = 0; i < INVENTARIO.length; i++) {
+        selectscreen.innerHTML += `<option value="USERS">${INVENTARIO[i].Name}</option>`
+    }
+}
+
+function selecthidden() {
+    if (agregarDato) {
+        selectoption.hidden = false;
+    }
+
+}
+
+function filtrarDato() {
+
+}
+
+function face2() {
+    cara1.hidden = true;
+    cara2.hidden = false;
+}
+
+function face1() {
+    cara1.hidden = false;
+    cara2.hidden = true;
+}
